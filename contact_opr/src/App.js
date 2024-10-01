@@ -4,10 +4,19 @@ import Navbar from './components/navBar';
 import Home from './pages/Home';
 import Edit from './pages/Edit';
 import Add from './pages/Add';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
+
 
 function App() {
   const [isAuthenticated,setIsAuthenticated] = useState(false);
+  const [message,setMessage] = useState('');
+
+  // useEffect(()=>{
+  //    fetch("http://localhost:5000/message")
+  //    .then((res) =>res.json())
+  //    .then((data) => setMessage(data.message))
+  // },[])
+
   return (
     <Router>
       <div className='App'>
