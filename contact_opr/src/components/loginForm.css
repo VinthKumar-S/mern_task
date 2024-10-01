@@ -1,0 +1,39 @@
+.logContainer{
+    margin-left: 40%;
+    margin-top: 15%;
+    border: 2px solid aqua;
+    width: 30%;
+    padding: 20px;
+    border-radius:20px ;
+}
+
+.logContainer h2{
+    text-align: center;
+    color: aqua;
+}
+
+.logContainer label{
+    display: block;
+    margin-left:10% ;
+    margin-bottom: 10px;
+}
+
+.logContainer input{
+    margin-left: 10%;
+    margin-bottom: 30px;
+    width: 70%;
+    height:30px;
+    border-radius:20px ;
+    border: 2px solid aqua;
+}
+
+.logContainer button{
+    margin-left: 30%;
+    margin-bottom: 10px;
+    width: 40%;
+    height: 30px;
+    background-color: aqua;
+    border: 2px solid aqua;
+    color: white;
+    border-radius:20px ;
+}
