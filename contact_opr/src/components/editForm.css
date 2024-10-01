@@ -1,0 +1,37 @@
+.editForms{
+    margin-left: 25%;
+    margin-top: 5%;
+    width: 30%;
+    padding: 20px;
+}
+
+.editForms h2{
+    text-align: center;
+    color: aqua;
+}
+
+.editForms label{
+    display: block;
+    margin-left:10% ;
+    margin-bottom: 10px;
+}
+
+.editForms input{
+    margin-left: 10%;
+    margin-bottom: 30px;
+    width: 70%;
+    height:30px;
+    border-radius:20px ;
+    border: 2px solid aqua;
+}
+
+.editForms button{
+    margin-left: 30%;
+    margin-bottom: 10px;
+    width: 40%;
+    height: 30px;
+    background-color: aqua;
+    border: 2px solid aqua;
+    color: white;
+    border-radius:20px ;
+}

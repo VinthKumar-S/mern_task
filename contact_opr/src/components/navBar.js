@@ -10,7 +10,7 @@ const Navbar=()=>{
                     <Link class="link" to="/">Home</Link>
                 </li>
                 <li>
-                    <Link class="link" to="/edit">Edit</Link>
+                    <Link class="link" to="/edit/:id">Edit</Link>
                 </li>
                 <li>
                     <Link class="link" to="/add">Add</Link>

@@ -11,7 +11,7 @@ app.get('/message',(req,res)=>{
     res.json({message:"Hello From Node.js"})
 })*/
 
-mongoose.connect('mongodb://localhost:27017/contactDb',{useNewUrlParse:true,useUnifiedTopology:true})
+mongoose.connect('mongodb://localhost:27017/contactDb',)
     .then(()=>console.log('MongoDB Connected'))
     .catch(err => console.log(err));
 
@@ -36,7 +36,42 @@ app.post('/add-contact',async(req,res)=>{
     }
 })
 
+app.get('/contacts',async(req,res) =>{
+    try{
+        const contacts =await contactList.find();
+        res.json(contacts);
+    }
+    catch(e){
+        res.status(500).json({message: "Error in Fetching"});
+    }
+})
+
+app.delete('/contacts/:id',async(req,res) =>{
+    try{
+        const {id} = req.params;
+        await contactList.findByIdAndDelete(id);
+        res.json({message:'Contact Deleted'});
+    }
+    catch(error){
+        res.status(500).json({message:'Error in deleting'});
+    }
+})
+
+app.put('/contacts/:id',async(req,res) =>{
+    try{
+        const {id} = req.params;
+        const {name,phone,email} = req.body;
+        const updatedItem = await contactList.findByIdAndUpdate(id,{name,phone,email},{new:true});
+
+        res.json(updatedItem);
+    }
+    catch(error){
+        res.status(500).json({message:'Error in Updating'});
+    }
+})
+
 const PORT = process.env.PORT || 5000;
 app.listen(PORT,() =>{
     console.log(`Server running on port`);
 })
+

@@ -1,5 +1,5 @@
 import LoginForm from './pages/loginForm';
-import {BrowserRouter as Router ,Route ,Routes,Navigate } from 'react-router-dom';
+import {BrowserRouter as Router ,Route ,Routes,Navigate,Switch } from 'react-router-dom';
 import Navbar from './components/navBar';
 import Home from './pages/Home';
 import Edit from './pages/Edit';
@@ -24,7 +24,7 @@ function App() {
         <Routes>
             <Route path='/login' element={<LoginForm setIsAuthenticated={setIsAuthenticated}/>}/>
             <Route path="/" element={/*isAuthenticated ? */<Home /> /*: <Navigate to="/login" />*/ }/>
-            <Route path="/edit" element={/*isAuthenticated ? */<Edit/> /*:<Navigate to="/login" />*/}/>
+            <Route path="/edit/:id" element={/*isAuthenticated ? */<Edit/> /*:<Navigate to="/login" />*/}/>
             <Route path="/add" element={/*isAuthenticated ? */<Add /> /*: <Navigate to="/login" />*/}/>
         </Routes>
       </div>
