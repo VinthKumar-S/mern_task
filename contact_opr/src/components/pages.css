@@ -1,13 +1,15 @@
 body{
     margin: 0;
+    background-color: #FFD7C4;
 }
 
 .header{
     padding: 5px;
     text-align: center;
-    background-color: aqua;
+    background-color: #9DBDFF;
     color: white;
-    font-size: 15px;
     margin: 0;
     z-index: 2;
+    font-size: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }

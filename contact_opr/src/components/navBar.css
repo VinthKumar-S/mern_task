@@ -1,6 +1,6 @@
 
 .navBar{
-    background-color: aqua;
+    background-color: #7695FF;
     height: 100%;
     width: 160px;
     position: fixed;
@@ -21,4 +21,17 @@ ul{
     display: block;
     margin-top: 20px;
     font-size: 20px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.logOff{
+    background-color: #7695FF;
+    border: none;
+    color: white;
+    display: block;
+    margin-top: 30px;
+    margin-left: 30px;
+    font-size: 15px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    text-align: center;
 }

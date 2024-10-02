@@ -2,12 +2,16 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-const {authenticate,isAdmin,isUser} = require('./middleware/auth');
+const contactRoutes = require('./routes/contactRoutes');
 
 const app = express();
 
 app.use(cors());
 app.use(express.json());
+app.use('/api/contacts',contactRoutes);
+
+module.exports = app;
+
 /*
 app.get('/message',(req,res)=>{
     res.json({message:"Hello From Node.js"})
@@ -83,7 +87,6 @@ app.put('/contacts/:id',async(req,res) =>{
     }
 })
     
-const app = require('./app');
 
 
 const PORT = process.env.PORT || 5000;

@@ -1,16 +1,16 @@
 import LoginForm from './pages/loginForm';
-import {BrowserRouter as Router ,Route ,Routes,Navigate,Switch } from 'react-router-dom';
+import {BrowserRouter as Router ,Route ,Routes,Navigate, } from 'react-router-dom';
 import Navbar from './components/navBar';
 import Home from './pages/Home';
 import Edit from './pages/Edit';
 import Add from './pages/Add';
-import AdminRoute from './middleware/adminRoute'
-import { useEffect, useState } from 'react';
+//import AdminRoute from './middleware/adminRoute'
+import { useState } from 'react';
 
 
 function App() {
   const [isAuthenticated,setIsAuthenticated] = useState(false);
-  const [message,setMessage] = useState('');
+  //const [message,setMessage] = useState('');
 
   // useEffect(()=>{
   //    fetch("http://localhost:5000/message")
@@ -21,12 +21,12 @@ function App() {
   return (
     <Router>
       <div className='App'>
-        <Navbar/>
+      {isAuthenticated && <Navbar setIsAuthenticated={setIsAuthenticated} />}
         <Routes>
             <Route path='/login' element={<LoginForm setIsAuthenticated={setIsAuthenticated}/>}/>
             <Route path="/" element={isAuthenticated ? <Home /> : <Navigate to="/login" /> }/>
-            <AdminRoute path="/edit/:id" element={isAuthenticated ? <Edit/> :<Navigate to="/login" />}/>
-            <AdminRoute path="/add" element={isAuthenticated ? <Add /> : <Navigate to="/login" />}/>
+            <Route path="/edit/:id" element={isAuthenticated ? <Edit/> :<Navigate to="/login" />}/>
+            <Route path="/add" element={isAuthenticated ? <Add /> : <Navigate to="/login" />}/>
         </Routes>
       </div>
     </Router>

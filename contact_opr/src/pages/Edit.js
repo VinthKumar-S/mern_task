@@ -52,7 +52,6 @@ const Edit = () =>{
         </div>
         <div className='editForms'>
             <form className='editForm' onSubmit={handleSubmit}>
-                <h2>Details</h2>
                 <div className="inputContainer">
                     <label>Name</label>
                     <input type='text'

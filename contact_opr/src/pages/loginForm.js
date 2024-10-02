@@ -4,28 +4,34 @@ import '../components/pages.css';
 import '../components/loginForm.css';
 
 const LoginForm = ({ setIsAuthenticated })=>{
-    const [email,setEmail] = useState('');
+    const [user,setEmail] = useState('');
     const [password,setPassword] = useState('');
     const navigate = useNavigate();
 
     const handleSubmit = (e) =>{
         e.preventDefault();
 
-        if(email === 'vk@gmail.com' && password === '123'){
+        if(user === 'admin' && password === 'admin123'){
+            localStorage.setItem('user',JSON.stringify({user:'admin',role:'admin'}))
             setIsAuthenticated(true);
-            navigate('/');
+            navigate('/');           
+        }
+        else if(user === 'user' && password === 'user123'){
+            localStorage.setItem('user',JSON.stringify({user:'user',role:'user'}))
+           setIsAuthenticated(true)
+           navigate('/');  
         }
         else{
             alert('Invalid email or pasword');
         }
     }
     return (
-        <div className='logContainer'>
+            <div className='logContainer'>
                 <form className='logForm' onSubmit={handleSubmit}>
                     <h2>Login</h2>
                     <div class="inputContainer">
-                        <label>Email</label>
-                        <input type='email' value={email} onChange={(e)=>setEmail(e.target.value)}/>
+                        <label>Name</label>
+                        <input type='text' value={user} onChange={(e)=>setEmail(e.target.value)}/>
                     </div>
                     <div class="inputContainer">
                         <label>Password</label>
@@ -34,7 +40,7 @@ const LoginForm = ({ setIsAuthenticated })=>{
 
                     <button type='submit' className='logButton'>Login</button>                
                 </form>
-        </div>
+            </div>
         
     );
 }

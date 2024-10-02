@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import {Route,Redirect} from 'react-router-dom';
+
+import {BrowserRouter as  Route, Navigate} from 'react-router-dom';
 
 const AdminRoute = ({component :Component ,...rest}) =>{
     const user = JSON.parse(localStorage.getItem('user'));
@@ -11,7 +11,7 @@ const AdminRoute = ({component :Component ,...rest}) =>{
                 props => user && user.role === 'admin' ? (
                     <Component {...props}/>
                 ) :(
-                    <Redirect to='/login'/>
+                    <Navigate to='/login'/>
                 )
             }
         />

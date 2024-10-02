@@ -1,7 +1,11 @@
+body{
+    background-color: #FFD7C4;
+}
 .logContainer{
-    margin-left: 40%;
+    background-color: #7695FF;
+    margin-left: 35%;
     margin-top: 15%;
-    border: 2px solid aqua;
+    border: 2px solid white;
     width: 30%;
     padding: 20px;
     border-radius:20px ;
@@ -9,13 +13,18 @@
 
 .logContainer h2{
     text-align: center;
-    color: aqua;
+    color: white;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 20px;
 }
 
 .logContainer label{
     display: block;
     margin-left:10% ;
     margin-bottom: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px;
+    color: white;
 }
 
 .logContainer input{
@@ -24,7 +33,7 @@
     width: 70%;
     height:30px;
     border-radius:20px ;
-    border: 2px solid aqua;
+    border: none;
 }
 
 .logContainer button{
@@ -32,8 +41,8 @@
     margin-bottom: 10px;
     width: 40%;
     height: 30px;
-    background-color: aqua;
-    border: 2px solid aqua;
+    background-color: #7695FF;
+    border: 1px solid white;
+    border-radius: 25px;
     color: white;
-    border-radius:20px ;
 }

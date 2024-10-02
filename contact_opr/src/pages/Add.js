@@ -48,7 +48,6 @@ const Add = () =>{
             </div>
             <div className='addForms'>
                 <form className='addForm' onSubmit={handleSubmit}>
-                    <h2>Details</h2>
                     <div class="inputContainer">
                         <label>Name</label>
                         <input type='text'

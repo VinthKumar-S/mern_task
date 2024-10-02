@@ -1,19 +1,18 @@
 .editForms{
-    margin-left: 25%;
+    margin-left: 35%;
     margin-top: 5%;
     width: 30%;
     padding: 20px;
 }
 
-.editForms h2{
-    text-align: center;
-    color: aqua;
-}
 
 .editForms label{
     display: block;
     margin-left:10% ;
     margin-bottom: 10px;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 15px;
+    color: #7695FF;
 }
 
 .editForms input{
@@ -22,7 +21,8 @@
     width: 70%;
     height:30px;
     border-radius:20px ;
-    border: 2px solid aqua;
+    border: 2px solid  #7695FF;
+    background-color: #FFD7C4;
 }
 
 .editForms button{
@@ -30,8 +30,8 @@
     margin-bottom: 10px;
     width: 40%;
     height: 30px;
-    background-color: aqua;
-    border: 2px solid aqua;
+    background-color:  #7695FF;
+    border: none;
     color: white;
     border-radius:20px ;
 }

@@ -1,8 +1,14 @@
 import React from "react";
-import {Link} from 'react-router-dom';
+import {Link,useNavigate} from 'react-router-dom';
 import './navBar.css'
 
-const Navbar=()=>{
+const Navbar=({setIsAuthenticated})=>{
+    const navigate = useNavigate();
+
+    const handleLogout =()=>{
+        setIsAuthenticated(false);
+        navigate('/login');
+    }
     return(
         <nav class="navBar">
             <ul>
@@ -16,6 +22,7 @@ const Navbar=()=>{
                     <Link class="link" to="/add">Add</Link>
                 </li>
             </ul>
+            <button className="logOff" onClick={handleLogout}>Logout</button>
         </nav>
     )
 }

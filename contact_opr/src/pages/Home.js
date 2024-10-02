@@ -30,20 +30,20 @@ const deleteContact = (id) =>{
                 <h2>Home Contact</h2>
             </div>
             <div className='displayContainer'>
-                <ul>
                     {contacts.length > 0 ? (
                         contacts.map(contact =>(
-                            <li key={contact._id}>
-                                <h3>{contact.name}</h3>
-                                <p>{contact.phone}</p>
-                                <button onClick={() => deleteContact(contact._id)}>Delete</button>
-                                <Link to={`/edit/${contact._id}`} >Edit</Link>
-                            </li>
+                            <div className='contactCards'>
+                                <h4 className='contactTitle'>{contact.name}</h4>
+                                <p className='contactsubT'>{contact.phone}</p>
+                                <div className='cardControler'>
+                                    <button onClick={() => deleteContact(contact._id)}>Delete</button>
+                                    <Link className='cardEdit' to={`/edit/${contact._id}`} >Edit</Link>
+                                </div>
+                            </div>
                         ))
                     ):(
                         <p>No Item</p>
                     )}
-                </ul>
             </div>
         </div>
     );
