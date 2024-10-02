@@ -4,6 +4,7 @@ import Navbar from './components/navBar';
 import Home from './pages/Home';
 import Edit from './pages/Edit';
 import Add from './pages/Add';
+import AdminRoute from './middleware/adminRoute'
 import { useEffect, useState } from 'react';
 
 
@@ -23,9 +24,9 @@ function App() {
         <Navbar/>
         <Routes>
             <Route path='/login' element={<LoginForm setIsAuthenticated={setIsAuthenticated}/>}/>
-            <Route path="/" element={/*isAuthenticated ? */<Home /> /*: <Navigate to="/login" />*/ }/>
-            <Route path="/edit/:id" element={/*isAuthenticated ? */<Edit/> /*:<Navigate to="/login" />*/}/>
-            <Route path="/add" element={/*isAuthenticated ? */<Add /> /*: <Navigate to="/login" />*/}/>
+            <Route path="/" element={isAuthenticated ? <Home /> : <Navigate to="/login" /> }/>
+            <AdminRoute path="/edit/:id" element={isAuthenticated ? <Edit/> :<Navigate to="/login" />}/>
+            <AdminRoute path="/add" element={isAuthenticated ? <Add /> : <Navigate to="/login" />}/>
         </Routes>
       </div>
     </Router>
