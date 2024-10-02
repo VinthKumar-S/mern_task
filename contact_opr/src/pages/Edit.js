@@ -9,10 +9,16 @@ const Edit = () =>{
     const [contact,setContact] = useState({name:'',phone:'',email:''})
 
     useEffect(() => {
+        console.log("Fetchig contact with ID:",id);
         fetch(`http://localhost:5000/contacts/${id}`)
-        .then(response => response.json())
+        .then(response => {
+            if(! response.ok){
+                throw new Error(`Http error! status :${response.status}`)
+            }
+            response.json();
+        })
         .then(data => setContact(data))
-        .catch(error => console.error("Error in editing"));
+        .catch(error => console.error("Error in fetching data",error));
     },[id] );
 
     const handleSubmit =(event) =>{
@@ -47,7 +53,7 @@ const Edit = () =>{
         <div className='editForms'>
             <form className='editForm' onSubmit={handleSubmit}>
                 <h2>Details</h2>
-                <div class="inputContainer">
+                <div className="inputContainer">
                     <label>Name</label>
                     <input type='text'
                         name='name'
@@ -55,7 +61,7 @@ const Edit = () =>{
                         onChange={handleChange}
                     />
                 </div>
-                <div class="inputContainer">
+                <div className="inputContainer">
                     <label>Phone</label>
                     <input type='text'
                         name='phone'
@@ -63,10 +69,10 @@ const Edit = () =>{
                         onChange={handleChange}
                     />
                 </div>
-                <div class="inputContainer">
+                <div className="inputContainer">
                     <label>Email</label>
                     <input type='text'
-                        name='name'
+                        name='email'
                         value={contact.email}
                         onChange={handleChange}
                     />

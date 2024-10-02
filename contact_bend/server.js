@@ -2,10 +2,11 @@ const express = require('express');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 const mongoose = require('mongoose');
+
 const app = express();
 
 app.use(cors());
-app.use(bodyParser.json());
+app.use(express.json());
 /*
 app.get('/message',(req,res)=>{
     res.json({message:"Hello From Node.js"})
@@ -57,18 +58,31 @@ app.delete('/contacts/:id',async(req,res) =>{
     }
 })
 
+
 app.put('/contacts/:id',async(req,res) =>{
     try{
         const {id} = req.params;
         const {name,phone,email} = req.body;
-        const updatedItem = await contactList.findByIdAndUpdate(id,{name,phone,email},{new:true});
 
-        res.json(updatedItem);
+        if(!mongoose.Types.ObjectId.isValid(id)){
+            return res.status(400).json({message :"Inavalid ID Format"})
+        }
+
+        const updatedContact = await contactList.findByIdAndUpdate(id,{name,phone,email},{new:true});
+
+
+        if(!updatedContact){
+            return res.status(404).json({message :'Contact not found'});
+        }
+
+        res.json(updatedContact);
     }
     catch(error){
         res.status(500).json({message:'Error in Updating'});
     }
 })
+    
+
 
 const PORT = process.env.PORT || 5000;
 app.listen(PORT,() =>{
